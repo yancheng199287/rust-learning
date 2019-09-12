@@ -1,13 +1,150 @@
 use std::thread;
 use std::time::Duration;
 use std::sync::mpsc;
+use std::sync::{Mutex, Arc};
 
 
 fn main() {
     println!("Hello, world!");
     // thread1();
     //thread2();
-    thread3();
+    // thread3();
+    // thread4();
+    // thread5();
+    //thread6();
+    // thread7();
+     thread8();
+}
+
+//原子引用计数 Arc<T>
+fn thread8() {
+    //所幸 Arc<T> 正是 这么一个类似 Rc<T> 并可以安全的用于并发环境的类型。字母 “a” 代表 原子性（atomic），所以这是一个原子引用计数（
+    let counter = Arc::new(Mutex::new(0));
+    let mut handles = vec![];
+
+    for _ in 0..10 {
+        let counter = Arc::clone(&counter);
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+            *num += 1;
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+
+    println!("Result: {}", *counter.lock().unwrap());
+
+}
+//
+
+//编译会报错，因为counter不能用在多线程中，这是不安全的
+/*fn thread7() {
+    let counter = Mutex::new(0);
+    let mut handles = vec![];
+    for _ in 0..10 {
+        let handle = thread::spawn(move || {
+            let mut num = counter.lock().unwrap();
+
+            *num += 1;
+        });
+        handles.push(handle);
+    }
+
+    for handle in handles {
+        handle.join().unwrap();
+    }
+    println!("Result: {}", *counter.lock().unwrap());
+}*/
+
+
+//
+fn thread6() {
+    //使用关联函数 new 来创建一个 Mutex<T> 互斥器
+    let m = Mutex::new(5);
+
+    {
+        //使用 lock 方法获取锁，以访问互斥器中的数据。这个调用会阻塞当前线程，直到我们拥有锁为止。
+        //如果另一个线程拥有锁，并且那个线程 panic 了，则 lock 调用会失败。
+        // 在这种情况下，没人能够再获取锁，所以这里选择 unwrap 并在遇到这种情况时使线程 panic。
+
+        //一旦获取了锁，就可以将返回值（在这里是num）视为一个其内部数据的可变引用了。
+        // 类型系统确保了我们在使用 m 中的值之前获取锁：Mutex<i32> 并不是一个 i32，所以 必须 获取锁才能使用这个 i32 值。
+        let mut num = m.lock().unwrap();
+        *num = 6;
+    }
+
+    println!("m = {:?}", m);
+}
+
+
+//通过克隆发送者来创建多个生产者
+fn thread5() {
+    let (tx, rx) = mpsc::channel();
+
+    //通道的发送端调用了 clone 方法。这会给我们一个可以传递给第一个新建线程的发送端句柄。我们会将原始的通道发送端传递给第二个新建线程。
+    // 这样就会有两个线程，每个线程将向通道的接收端发送不同的消息
+    let tx1 = mpsc::Sender::clone(&tx);
+
+    thread::spawn(move || {
+        let vals = vec![
+            String::from("hi"),
+            String::from("from"),
+            String::from("the"),
+            String::from("thread"),
+        ];
+
+        for val in vals {
+            tx1.send(val).unwrap();
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+
+    thread::spawn(move || {
+        let vals = vec![
+            String::from("more"),
+            String::from("messages"),
+            String::from("for"),
+            String::from("you"),
+        ];
+
+        for val in vals {
+            tx.send(val).unwrap();
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+
+    for received in rx {
+        println!("Got: {}", received);
+    }
+}
+
+
+//发送多个值并观察接收者的等待
+fn thread4() {
+    let (tx, rx) = mpsc::channel();
+
+    thread::spawn(move || {
+        let vals = vec![
+            String::from("hi"),
+            String::from("from"),
+            String::from("the"),
+            String::from("thread"),
+        ];
+
+        for val in vals {
+            tx.send(val).unwrap();
+            thread::sleep(Duration::from_secs(1));
+        }
+    });
+
+    //将 rx 当作一个迭代器。对于每一个接收到的值，我们将其打印出来。当通道被关闭时，迭代器也将结束
+    //因为在主线程中并没有任何暂停或位于 for 循环中用于等待的代码，所以可以说主线程是在等待从新建线程中接收值
+    for received in rx {
+        println!("Got: {}", received);
+    }
 }
 
 //使用消息传递在线程间传送数据
