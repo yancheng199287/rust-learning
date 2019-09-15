@@ -9,16 +9,27 @@ fn main() {
 
     let mut s = String::from("hello world");
 
-    /*    这类似于引用整个 String 不过带有额外的 [0..5] 部分。
-        它不是对整个 String 的引用，而是对部分 String 的引用。
-        start..end 语法代表一个以 start 开头并一直持续到但不包含 end 的 range。
-        如果需要包含 end，可以使用 ..= 而不是 ..
-        */
+    /*     这类似于引用整个 String 不过带有额外的 [0..5] 部分。
+       它不是对整个 String 的引用，而是对部分 String 的引用。
+       start..end 语法代表一个以 start 开头并一直持续到但不包含 end 的 range。
+       如果需要包含 end，可以使用 ..= 而不是 ..
+       */
+
     let hello = &s[0..5];
     let world = &s[6..=10];
 
     first_word(&s);
     println!("s:{},hello:{}，world：{}", s, hello, world);
+
+
+    // s是一个字面值
+    let mut s = String::from("hello world");
+    //&s是获取字面值的不可变引用，如果想获取可变引用  & mut s
+    let w = first_word_1(&s);
+
+    // 因为要修改字符串，要获取一个可变引用， 在同一个作用域中不能同时获取获取不可变和可变，也不能多次获取可变引用
+    s.clear();//会报错， 使用 slice 保证 字符串完整性
+    println!("the first word is: {}", w);
 }
 
 fn first_word(s: &String) -> usize {
@@ -35,4 +46,9 @@ fn first_word(s: &String) -> usize {
         }
     }
     return s.len();
+}
+
+
+fn first_word_1(s: &str) -> &str {
+    &s[0..]
 }

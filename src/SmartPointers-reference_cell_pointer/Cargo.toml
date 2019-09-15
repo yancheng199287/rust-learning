@@ -1,0 +1,9 @@
+[package]
+name = "SmartPointers-reference_cell_pointer"
+version = "0.1.0"
+authors = ["王子和 <648830605@qq.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
