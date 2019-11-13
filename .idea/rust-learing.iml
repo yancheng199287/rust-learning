@@ -4,53 +4,108 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../guessing_game\examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../guessing_game\tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../guessing_game\benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../guessing_game/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../guessing_game/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../guessing_game/benches" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/RefrenceAndBorrow/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/RefrenceAndBorrow\examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/RefrenceAndBorrow\tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/RefrenceAndBorrow\benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/RefrenceAndBorrow/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/RefrenceAndBorrow/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/RefrenceAndBorrow/benches" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/Slice/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Slice\examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Slice\tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Slice\benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Slice/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Slice/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Slice/benches" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/Struct/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Struct\examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Struct\tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Struct\benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Struct/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Struct/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Struct/benches" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/PackageModule/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule\examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule\tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule\benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule/benches" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/PackageModule01/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule01\examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule01\tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule01\benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule01/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule01/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/PackageModule01/benches" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/Vector/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Vector\examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Vector\tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/Vector\benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Vector/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Vector/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Vector/benches" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/StringChar/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/StringChar\examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/StringChar\tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/StringChar\benches" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../rust-learing\examples" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../rust-learing\tests" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../rust-learing\benches" isTestSource="true" />
-      <excludeFolder url="file://$MODULE_DIR$/../guessing_game\target" />
+      <sourceFolder url="file://$MODULE_DIR$/src/StringChar/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/StringChar/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/StringChar/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/enums/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/enums/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/enums/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/enums/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/LlifeCycle/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/LlifeCycle/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/LlifeCycle/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/LlifeCycle/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Tester/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Tester/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Tester/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Tester/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Minigrep/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Minigrep/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Minigrep/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Minigrep/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Minigrep01/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Minigrep01/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Minigrep01/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Minigrep01/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Closures/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Closures/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Closures/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Closures/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Iterator/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Iterator/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Iterator/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Iterator/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Blog/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Blog/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Blog/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Blog/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Closures01/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Closures01/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Closures01/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Closures01/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/net01/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/net01/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/net01/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/net01/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Borrow/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Borrow/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Borrow/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Borrow/benches" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/LlifeCycle01/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/LlifeCycle01/examples" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/LlifeCycle01/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/LlifeCycle01/benches" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/../guessing_game/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Blog/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Borrow/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Closures/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Closures01/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Iterator/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/LlifeCycle/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/LlifeCycle01/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Minigrep/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Minigrep01/target" />
       <excludeFolder url="file://$MODULE_DIR$/src/PackageModule/target" />
       <excludeFolder url="file://$MODULE_DIR$/src/PackageModule01/target" />
-      <excludeFolder url="file://$MODULE_DIR$/src/PackageModule01\target" />
-      <excludeFolder url="file://$MODULE_DIR$/src/PackageModule\target" />
       <excludeFolder url="file://$MODULE_DIR$/src/RefrenceAndBorrow/target" />
-      <excludeFolder url="file://$MODULE_DIR$/src/RefrenceAndBorrow\target" />
       <excludeFolder url="file://$MODULE_DIR$/src/Slice/target" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Slice\target" />
-      <excludeFolder url="file://$MODULE_DIR$/src/StringChar\target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/StringChar/target" />
       <excludeFolder url="file://$MODULE_DIR$/src/Struct/target" />
-      <excludeFolder url="file://$MODULE_DIR$/src/Struct\target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/Tester/target" />
       <excludeFolder url="file://$MODULE_DIR$/src/Vector/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/enums/target" />
+      <excludeFolder url="file://$MODULE_DIR$/src/net01/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

@@ -1,3 +1,8 @@
+
+/*Rust 中的每一个引用都有其 生命周期（lifetime），也就是引用保持有效的作用域。
+大部分时候生命周期是隐含并可以推断的，正如大部分时候类型也是可以推断的一样。
+  只有谈引用的时候才有生命周期，因为生命周期就是控制引用的有效性
+*/
 fn main() {
     println!("Hello, 本案例讲解生命周期与引用有效性");
     //test();
@@ -6,7 +11,7 @@ fn main() {
     let string1 = String::from("abcd");
     let string2 = "xyz";
 
-   let result = longest1(string1.as_str(), string2);
+    let result = longest1(string1.as_str(), string2);
     println!("The longest string is {}", result);
 
 
@@ -22,17 +27,16 @@ fn main() {
     }
 
 
-/*    let string1 = String::from("long string is long");
-    let result;
-    {
-        let string2 = String::from("xyz");
+    /*    let string1 = String::from("long string is long");
+        let result;
+        {
+            let string2 = String::from("xyz");
 
-        //函数返回的引用的生命周期与传入参数的生命周期中较短那个保持一致
-        //string2的生命周期较短，但是result的生命周期在外面，很长，编译器不允许这样传递无效的引用的操作
-        result = longest1(string1.as_str(), string2.as_str());
-    }
-    println!("The longest string is {}", result);*/
-
+            //函数返回的引用的生命周期与传入参数的生命周期中较短那个保持一致
+            //string2的生命周期较短，但是result的生命周期在外面，很长，编译器不允许这样传递无效的引用的操作
+            result = longest1(string1.as_str(), string2.as_str());
+        }
+        println!("The longest string is {}", result);*/
 
 
     let novel = String::from("Call me Ishmael. Some years ago...");
@@ -41,7 +45,6 @@ fn main() {
     //ImportantExcerpt 离开作用域之后 novel 都不会离开作用域，所以 ImportantExcerpt 实例中的引用是有效的
     let content = ImportantExcerpt { part: first_sentence };
     println!("The first_sentence string is {}", content.part);
-
 }
 
 
@@ -51,12 +54,6 @@ fn main() {
 struct ImportantExcerpt<'a> {
     part: &'a str,
 }
-
-
-
-
-
-
 
 
 /*//返回值的生命周期与参数完全没有关联
@@ -74,11 +71,6 @@ fn longest2<'a>(x: &'a str, y: &str) -> &'a str {
     // 注意，因为返回值类型的生命周期是 ‘a   而参数只有x的生命周期参数是 ’a 所以只能返回x   如果返回y会提示报错
    x
 }*/
-
-
-
-
-
 
 
 //泛型生命周期参数需要声明在函数名和参数列表间的尖括号中。
@@ -121,3 +113,24 @@ fn test1() {
     println!("r:{}", r)
 }*/
 
+
+#[test]
+fn life0(){
+    let  a=get_str();
+    println!("{}",a);
+
+    longest(a,"asassa");
+
+}
+
+
+//返回值的生命期必须和至少一个参数相同
+fn longest(x: &str, y: &str) -> &str {  //返回引用，但与参数无关，只能从内部返回。无效
+    let result = String::from("really long string");
+    result.as_str();  //返回后不再存在，造成无主引用。这种情况不要返回引用。
+}
+
+fn get_str() -> &'static str {
+    let x: &str = "Hello, world.";
+    return x;
+}
