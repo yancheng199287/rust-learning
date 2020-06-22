@@ -64,16 +64,44 @@ fn ownership01() {
 }
 
 
+#[test]
+fn compute01() {
+    let a = 50;
+    let mut b = 100;
+    compute(&a, &mut b);
+    compute02(&a, &mut b);
 
+    let s: &'static str = "I have a static lifetime.";
 
-/*
-fn sas() {
-    let a = String::from("book");
-    {
-        let b = a;            // a 将 "book" 转让给 b
-    }                         // b 死了，却没有将 "book" 还给 a
-    println!("a = '{}'", a);  // 出错，"book" 不在 a 手上。
 }
-*/
+
+
+fn compute(input: &u32, output: &mut u32) {
+
+    if *input > 10 {
+        *output = 1;
+    }
+    if *input > 5 {
+        *output *= 2;
+    }
+    println!("{}",output)
+}
+
+fn compute02(input: &u32, output: &mut u32) {
+    let cached_input = *input; // 将*input放入缓存
+    if cached_input > 10 {
+        *output = 20; // x > 5 则必然 x > 5，所以直接加倍并立即退出
+    } else if cached_input > 5 {
+        *output *= 2;
+    }
+
+    println!("cached_input:{} , output:{}",cached_input,output)
+}
+
+
+fn compute03(input: &u32, output: &mut u32) {
+
+    println!("cached_input:{} , output:{}",cached_input,output)
+}
 
 
