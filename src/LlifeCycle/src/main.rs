@@ -1,4 +1,3 @@
-
 /*Rust 中的每一个引用都有其 生命周期（lifetime），也就是引用保持有效的作用域。
 大部分时候生命周期是隐含并可以推断的，正如大部分时候类型也是可以推断的一样。
   只有谈引用的时候才有生命周期，因为生命周期就是控制引用的有效性
@@ -36,7 +35,9 @@ fn main() {
             //string2的生命周期较短，但是result的生命周期在外面，很长，编译器不允许这样传递无效的引用的操作
             result = longest1(string1.as_str(), string2.as_str());
         }
-        println!("The longest string is {}", result);*/
+        println!("The longest string is {}", result);
+
+        */
 
 
     let novel = String::from("Call me Ishmael. Some years ago...");
@@ -98,7 +99,7 @@ fn longest(x: &str, y: &str) -> &str {
 fn test1() {
     let x = 5;
     let r;
-    r = &x;  //  r x在一个作用域内，当x有效时候，r总是有效的
+    r = &x;  //  r x在一个作用域内，当x有效时候，r总是有效的  或者说 x的生命周期大于r，所以r结束并不会影响x
     println!("r:{}", r)
 }
 
@@ -115,22 +116,111 @@ fn test1() {
 
 
 #[test]
-fn life0(){
-    let  a=get_str();
-    println!("{}",a);
+fn life0() {
+    let a = get_str();
+    println!("{}", a);
 
-    longest(a,"asassa");
-
+    // longest(a, "asassa");
 }
 
 
+/*
 //返回值的生命期必须和至少一个参数相同
 fn longest(x: &str, y: &str) -> &str {  //返回引用，但与参数无关，只能从内部返回。无效
     let result = String::from("really long string");
     result.as_str();  //返回后不再存在，造成无主引用。这种情况不要返回引用。
 }
+*/
 
 fn get_str() -> &'static str {
     let x: &str = "Hello, world.";
     return x;
+}
+
+
+#[test]
+fn test_life_1() {
+    /*    {
+            let r;                // ---------+-- 'a
+            //          |
+            {                     //          |
+                let x = 5;        // -+-- 'b  |
+                r = x;           //  |       |
+            }                     // -+       |
+            //          |
+            println!("r: {}", r); //          |
+        }
+
+
+
+        {
+            let name;
+            {
+                let name1 = "good study";
+                name = &name1;
+            }
+
+            println!("name result:{}", name);
+        }*/
+
+    let age = "我的年龄";
+    let result;
+    {
+        let weight = "体";
+        result = longest(&age, &weight);
+    }
+    println!("result:{}", result);
+
+    /*
+     报错
+    let age = String::from("我的年龄");
+
+     let result;
+     {
+         let weight = String::from("我的体重哦");
+         result = longest(&age, &weight);
+         println!("小生命周期代码块中 result:{}", result);
+     }
+     println!("result:{}", result);*/
+
+
+    fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+        if x.len() > y.len() {
+            x
+        } else {
+            y
+        }
+    }
+}
+
+
+#[test]
+fn test_life_2() {
+    let mut name = String::from("hello\taa  ss 55");
+    let name1 = String::from("world");
+    let a = longest(&name, &name1);
+    println!("{}", a);
+
+    let b = longest1(&mut name, &name1);
+    println!("b {}", b);
+    fn longest<'a>(x: &'a str, y: &str) -> &'a str {
+        x
+    }
+
+    /*  fn longest1<'a>(x: &'a mut str, y: &str) -> &'a str {
+         return  x.trim()
+      }*/
+
+    /*  fn longest1<'a>(x: &str, y: &str) -> String {
+          return String::from("really long string");
+      }
+  */
+
+    /* fn longest1<'a>(x: &str, y: &str) -> &'a str {
+         let result = String::from("really long string");
+         result.as_str()
+     }
+ */
+    /* let result = String::from("really long string");
+     result.as_str()*/
 }
