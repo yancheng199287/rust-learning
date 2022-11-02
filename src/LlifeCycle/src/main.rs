@@ -224,3 +224,18 @@ fn test_life_2() {
     /* let result = String::from("really long string");
      result.as_str()*/
 }
+
+
+#[test]
+fn test_life_3() {
+
+    let r;
+
+    {
+        let x=5;
+        r=x;
+
+    }
+    print!("{}", r)
+
+}

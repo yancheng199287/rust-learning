@@ -24,7 +24,7 @@ fn main() {
     let origin = Point(0, 0, 0);
 }
 
-struct User {
+ struct User {
     username: String,
     email: String,
     sign_in_count: u64,
@@ -37,5 +37,13 @@ fn build_user(email: String, username: String) -> User {
         username,
         active: true,
         sign_in_count: 1,
+    }
+}
+
+
+impl User{
+
+    fn introduce(self){
+        println!("{} {}",self.username,self.email)
     }
 }
